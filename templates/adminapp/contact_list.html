@@ -1,0 +1,47 @@
+{% extends 'Navbar/Projectnavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact List</title>
+    <!-- Add Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+{% block body %}
+<div class="container my-4">
+    <h2 class="mb-4">Contact List</h2>
+    <form method="get" class="form-inline mb-4">
+        <input type="text" name="q" class="form-control mr-2" placeholder="Search by name or email">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div class="row">
+        {% for contact in contacts %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ contact.name }}</h5>
+                    <p class="card-text">
+                        <strong>Email:</strong> {{ contact.email }}<br>
+                        <strong>Phone:</strong> {{ contact.phone_number }}<br>
+                        <strong>Address:</strong> {{ contact.address }}
+                    </p>
+                    <a href="{% url 'delete_contact' contact.pk %}" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'email_contact' contact.pk %}" class="btn btn-info">Email</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="{% url 'add_contact' %}" class="btn btn-success mt-4">Add New Contact</a>
+</div>
+
+<!-- Add Bootstrap JS (Optional) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+</body>
+</html>

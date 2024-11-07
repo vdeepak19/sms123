@@ -1,0 +1,28 @@
+{% extends 'Navbar/StudentNavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .carousel-item img {
+            max-width: 100%; /* Ensures the image does not exceed the width of the screen */
+            max-height: 50vh; /* Ensures the image does not exceed the height of the viewport */
+            margin: auto; /* Centers the image horizontally */
+        }
+
+    </style>
+</head>
+<body>
+{% block body %}
+<br>
+<center>
+<h3>Welcome to Student Home Page
+</h3>
+</center>
+
+
+{% endblock %}
+</body>
+</html>

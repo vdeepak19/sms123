@@ -1,0 +1,26 @@
+<h2>Mark Attendance</h2>
+<p>Date: {{ selected_date }}</p>
+<p>Hours: {{ selected_hours }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                {% for hour in selected_hours %}
+                    <th>Hour {{ hour }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for form, student in formset.forms|zip:students %}
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ form.is_present }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button type="submit">Submit Attendance</button>
+</form>

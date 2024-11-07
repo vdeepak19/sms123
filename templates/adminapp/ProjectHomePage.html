@@ -1,0 +1,52 @@
+{% extends 'Navbar/ProjectNavbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .carousel-item img {
+            max-width: 100%; /* Ensures the image does not exceed the width of the screen */
+            max-height: 50vh; /* Ensures the image does not exceed the height of the viewport */
+            margin: auto; /* Centers the image horizontally */
+        }
+
+    </style>
+</head>
+<body>
+{% block body %}
+<br>
+<center>
+<h3>Welcome to Y23 - PFSD - Class
+<br> Here we are going to Web Development using Django
+</h3>
+</center>
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/zz5.jpg' %}" alt="...">
+
+    </div>
+    <div class="carousel-item equalize-height">
+      <img src="{% static 'images/zz1.jpg' %}" class="d-block w-100" alt="...">
+
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/zz7.jpg' %}" class="d-block w-100" alt="...">
+
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+{% endblock %}
+</body>
+</html>
